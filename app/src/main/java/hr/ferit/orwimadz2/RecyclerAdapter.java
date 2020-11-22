@@ -36,20 +36,15 @@ public class RecyclerAdapter extends RecyclerView.Adapter<ViewHolder> {
         return names.size();
     }
 
-    public void addNames(List<String> names){
-        this.names.addAll(names);
-        notifyDataSetChanged();
-    }
-
-    public void addNewNameCard(String name, int position){
-        if(names.size()>=position){
+    public void addNewNameCard(String name, int position) {
+        if (names.size() >= position) { //prevents position index from being out of array bounds
             names.add(position, name);
             notifyItemInserted(position);
         }
     }
 
-    public void removeNameCard(int position){
-        if(names.size()>position){
+    public void removeNameCard(int position) {
+        if (names.size() > position) { //prevents position index from being out of array bounds
             names.remove(position);
             notifyItemRemoved(position);
         }
