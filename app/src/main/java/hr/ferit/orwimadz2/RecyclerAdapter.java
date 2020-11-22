@@ -12,13 +12,18 @@ import java.util.List;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<ViewHolder> {
 
-    private List<String> names = new ArrayList<>();
+    private final List<String> names = new ArrayList<>();
+    private final NameClickListener clickListener;
+
+    public RecyclerAdapter(NameClickListener clickListener) {
+        this.clickListener = clickListener;
+    }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View nameView = LayoutInflater.from(parent.getContext()).inflate(R.layout.name_card, parent, false);
-        return new ViewHolder(nameView);
+        return new ViewHolder(nameView, clickListener);
     }
 
     @Override
@@ -34,5 +39,19 @@ public class RecyclerAdapter extends RecyclerView.Adapter<ViewHolder> {
     public void addNames(List<String> names){
         this.names.addAll(names);
         notifyDataSetChanged();
+    }
+
+    public void addNewNameCard(String name, int position){
+        if(names.size()>=position){
+            names.add(position, name);
+            notifyItemInserted(position);
+        }
+    }
+
+    public void removeNameCard(int position){
+        if(names.size()>position){
+            names.remove(position);
+            notifyItemRemoved(position);
+        }
     }
 }
