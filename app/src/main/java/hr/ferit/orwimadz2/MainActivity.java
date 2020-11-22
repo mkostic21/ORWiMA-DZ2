@@ -15,9 +15,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NameClickListener{
 
-    private RecyclerView recyclerView;
     private RecyclerAdapter adapter;
-    private Button btnAdd;
     private EditText etName;
 
 
@@ -30,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements NameClickListener
     }
 
     private void setupRecycler() {
-        recyclerView = findViewById(R.id.recyclerView);
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new RecyclerAdapter(this);
         recyclerView.setAdapter(adapter);
@@ -39,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements NameClickListener
     }
 
     private void initializeUI(){
-        btnAdd = findViewById(R.id.btnAdd);
+        Button btnAdd = findViewById(R.id.btnAdd);
         etName = findViewById(R.id.etName);
 
         btnAdd.setOnClickListener(new View.OnClickListener() {

@@ -9,22 +9,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/bottomGroup"/>
+
+    <!--Bottom Group-->
     <LinearLayout
         android:id="@+id/bottomGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_alignParentBottom="true"
-        android:layout_marginHorizontal="10dp">
-        <!--TODO: put margins to dimens.xml-->
+        android:layout_marginHorizontal="@dimen/layout_margin">
         <EditText
+            android:id="@+id/etName"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"/>
+            android:hint="@string/hint"
+            android:layout_marginEnd="@dimen/text_margin"/>
         <Button
+            android:id="@+id/btnAdd"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="@string/add_button"/>
     </LinearLayout>
 
 
